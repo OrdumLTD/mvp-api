@@ -1,0 +1,23 @@
+{
+  "name": "ordum-mvp-db",
+  "version": "0.1.0",
+  "description": "Mongo DB using Mongoose for Ordum's MVP",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "Orudum's Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.1",
+    "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "3.0.1"
+  }
+}

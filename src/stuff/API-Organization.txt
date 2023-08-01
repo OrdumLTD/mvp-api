@@ -1,0 +1,74 @@
+Organization
+
+GET:
+
+/organizations -> List of all organizations - DONE
+/organization/:id -> Organization by id
+/organization/teammembers -> List of all teammmber IDs
+/organization/teammembers/:id -> get team member by add
+/ogranization/proposals/ -> All proposals
+/organization/proposals/:id -> Get a proposal by id
+
+/organization/poposaldrafts/ -> Get drafts
+/organization/poposaldrafts/:id -> Get a draft by id
+
+POST:
+
+/organizations - Create an organization - DONE
+auth/organizations/addteammmeber - Sent a request for a team member
+auth/organization/milestone - add a milestone
+auth/organization/poposaldrafts/ -> Saves a draft of a proposal (up to 5, get's a 403 - only 5 drafts per user)
+
+PATCH:
+
+auth/organizations/:id/milestone/:id - Change milestones (save a copy)
+auth/individauls/:id/milestone:id/task/:id - Change a task (save a copy)
+auth/organization/poposaldrafts/:id -> chang a draft (not saving a copy)
+auth/organization/poposaldrafts/:id/milestone/:id -> change a milestone in a draft (not saving a copy)
+
+DELETE:
+
+auth/individauls/:id/milestone:id - delete a milestone
+auth/individauls/:id/milestone:id/task:id - Delete a task
+
+auth/organizations/:id/teammembers/:id - remove a team member
+auth/organization/poposaldrafts/:id - remove a draft
+
+
+
+INDIVIDUAL
+
+GET:
+
+/individual -> List of all organizations
+/individaul/:id -> individaul by id
+/individual/proposals/ -> All proposals
+/individaul/proposals/:id -> Get a proposal by id
+
+/individaul/poposaldrafts/ -> Get drafts
+/individaul/poposaldrafts/:id -> Get a draft by id
+
+POST:
+
+/individauls - Create an individaul
+auth/individaul/proposal - Add a proposal
+auth/individaul/milstone - add a milestone
+auth/individauls/:id/milestone:id/task - add a task
+auth/individaul/poposaldrafts/ -> Saves a draft of a proposal (up to 5, get's a 403 - only 5 drafts per user)
+
+auth/individaul/skill - add a skill
+auth/individaul/previouswork - add a previous work
+
+PATCH:
+
+auth/individauls/:id/milestone:id - Change milestones (save a copy)
+auth/individaul/poposaldrafts/:id -> chang a draft (not saving a copy)
+auth/individaul/poposaldrafts/:id/milestone/:id -> change a milestone in a draft (not saving a copy)
+
+DELETE: 
+
+auth/individauls/:id/milestone:id - Delete milestones 
+auth/individauls/:id/milestone:id/task:id  - Delete a task 
+
+auth/individaul/skill/:id - remove a skill
+auth/individaul/previouswork/:id - remove a previous work entry

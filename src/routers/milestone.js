@@ -22,4 +22,20 @@ router.post("/milestones", async (req, res) => {
   }
 });
 
+// //Submit milestone to DB
+// router.post("/milestones", auth, async (req, res) => {
+
+//     const milestone = new Milestone({
+//       ...req.body,
+//       owner: req.organization._id,
+//     });
+  
+//     try {
+//       await milestone.save();
+//       res.status(201).send(milestone);
+//     } catch (e) {
+//       res.status(500).send(e);
+//     }
+//   });
+
 module.exports = router;

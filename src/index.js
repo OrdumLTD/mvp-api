@@ -33,19 +33,21 @@ app.listen(port, () => {
 });
 
 
-// const Proposal = require('./models/proposal/proposal')
-// const Organization = require('./models/users/organization');
+const Proposal = require('./models/proposal/proposal')
+const Milestone = require('./models/milestones/milestone')
+const Organization = require('./models/users/organization');
 // const User = require("./models/user");
 
-// const main = async () => {
-//   // const proposal =  await Proposal.findById('64c9b46ff236eb223e3edaf2')
-//   // await proposal.populate('owner')
-//   // console.log(proposal)
+const main = async () => {
+  // const proposal =  await Proposal.findById('64c9b46ff236eb223e3edaf2')
+  // await proposal.populate('owner')
+  // console.log(proposal)
 
-//   const organization = await Organization.findById('64c9b2304078b3c1d3723b57')
-//   await organization.populate('proposals')
-//   await organization.getPublicProfile()
-//   console.log(organization.proposals)
-// }
+  const proposal = await Proposal.findById('64ca0f13a455b9c4fa7a05ce')
+  await proposal.populate('milestones')
+  // await organization.getPublicProfile()
+  console.log(proposal.milestones[1].tasks[1])
+  
+}
 
-// main()
+main()

@@ -123,6 +123,12 @@ organizationSchema.virtual("proposals", {
   foreignField: "owner",
 });
 
+organizationSchema.virtual("milestones", {
+  ref: "Milestones",
+  localField: "_id",
+  foreignField: "milesotones",
+});
+
 organizationSchema.methods.getPublicProfile = async function () {
   const organization = this;
   const organizationObject = organization.toObject();

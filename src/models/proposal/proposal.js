@@ -110,9 +110,6 @@ const proposalSchema = mongoose.Schema({
   context: {
     type: contextSchema,
   },
-  milestones: {
-    // ref to milestones
-  },
   teammembers: {
     // ref to teammbers
   },
@@ -121,6 +118,11 @@ const proposalSchema = mongoose.Schema({
     required: true,
     ref: "Organization",
   },
+  milestones: [{
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Milestone",
+  }],
   createdAt: {
     type: Date,
     default: Date.now(),

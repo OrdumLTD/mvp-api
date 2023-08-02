@@ -10,9 +10,17 @@ Clone this repo and run:
 
 > yarn
 
+Then: 
+
+> yarn dev
+
 You will also need to run an instance of MongoDB on your system/server:
 
 https://www.mongodb.com/docs/manual/installation/
+
+or for Mac:
+
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/#installing-mongodb-6.0-edition-edition 
 
 Usefull tools:
 

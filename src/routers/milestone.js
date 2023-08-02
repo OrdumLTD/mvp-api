@@ -3,6 +3,14 @@ const router = new express.Router();
 const Milestone = require("../models/milestones/milestone");
 // const auth = require("../middleware/organizationAuth");
 
+router.get("/test", async (req, res) => {
+    try {
+        res.send("Alive");
+      } catch (e) {
+        res.status(500).send(e);
+      }
+})
+
 router.get("/milestones", async (req, res) => {
   try {
     res.send("list of milestones");

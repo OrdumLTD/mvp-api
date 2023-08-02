@@ -6,6 +6,7 @@ const userRouter = require("./routers/user");
 const organizationRouter = require("./routers/organization");
 const proposalRouter = require("./routers/proposal")
 const taskRouter = require("./routers/task")
+const milstoneRouter = require("./routers/milestone")
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(userRouter);
+app.use(milstoneRouter);
 app.use(organizationRouter);
 app.use(proposalRouter)
 app.use(taskRouter)

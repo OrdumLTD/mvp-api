@@ -13,7 +13,6 @@ router.get("/tasks", async (req, res) => {
 
 router.post("/tasks", async (req, res) => {
   const task = new Task(req.body);
-  console.log(task);
   try {
     await task.save()
     res.status(201).send(task);

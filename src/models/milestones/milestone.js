@@ -1,27 +1,37 @@
 const mongoose = require("mongoose");
+const {taskSchema} = require("../task/task")
+
 
 const Milestone = mongoose.model("Milestone", {
   name: {
     type: String,
     trim: true,
-  },
-  id: {
-    //onchain ID for version
-    type: String,
+    required: true,
   },
   hash: {
     // another tool for versioning
     type: String,
   },
-  deadline: {
-    type: Date,
-  },
   description: {
     type: String,
+    maxlength: 2000,
     trim: true,
+    required: true,
   },
-  tasks: {
-    // List ot task
+  deadline: {
+    type: Date,
+    required: true,
+  },
+  tasks: [{
+    type: taskSchema
+  }],
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 

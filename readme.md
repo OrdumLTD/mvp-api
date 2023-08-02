@@ -49,10 +49,26 @@ GET url/organizations/:id - Get's an organizaiton public profile by ID.
 GET url/organizations/:id/proposals - Read all the proposals an organization has published
 GET (auth) url/organizations/:id  - Returns your organizations profile. 
 
-POST url/organizations/ - Creates an organization 
-POST url/organizations/login - Logs in (send JWT) an organizion (returns Organization's JSON + token)
+POST url/organizations/ - Creates an organization (returns JWT)
+POST url/organizations/login - Logs in (returns JWT) an organizion (returns Organization's JSON + token)
 POST (auth) url/organizations/logout - Logs out the organization form the current device (deletes the token)
 POST (auth) url/organizations/logoutAll - Logs out form ALL devices.
+
+POST (auth) url/organizations/addteammember - Add a teammember to a waiting list. If the teammember makes a
+requst to this organization's :id, and they are in this list, they will be added to it. (supposed to work
+with an email invite)
+
+
+### Individuals
+
+GET url/individuals/:id
+
+POST url/individuals/ - Create an individual (returns JWT)
+POST (auth) url/individuals/login - Logs in a user.
+POST (auth) url/individuals/logout - Logs out a user
+
+POST (auth) url/individuals/signup/:id - Makes a request to on organization (by id). If the individual's
+id is in their waiting list, the individaul will now be a teammember of this organization
 
 ### Proposals
 

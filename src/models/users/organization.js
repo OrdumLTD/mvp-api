@@ -113,31 +113,36 @@ const organizationSchema = mongoose.Schema({
     //
     //Existing individual account + type of user - sudo, admin, regular
   },
-  proposals: {},
   avatar: {},
   banner: {},
 });
 
+organizationSchema.virtual("proposals", {
+  ref: "Proposal",
+  localField: "_id",
+  foreignField: "owner",
+});
+
 organizationSchema.methods.getPublicProfile = async function () {
   const organization = this;
-  const organizationObject = organization.toObject()
+  const organizationObject = organization.toObject();
 
-  delete organizationObject.passkey
-  delete organizationObject.tokens
+  delete organizationObject.passkey;
+  delete organizationObject.tokens;
 
-  return organizationObject
-}
+  return organizationObject;
+};
 
 organizationSchema.methods.generateAuthToken = async function () {
   const organization = this;
-  console.log(organization._id)
+  console.log(organization._id);
   const token = jwt.sign(
     { _id: organization._id.toString() },
     "this is a big secret"
   );
 
   organization.tokens = organization.tokens.concat({ token: token });
-  await organization.save()
+  await organization.save();
 
   return token;
 };

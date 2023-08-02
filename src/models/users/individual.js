@@ -43,6 +43,9 @@ const User = mongoose.model("Organization", {
   skills: {
     // array of Skills
   },
+  previousWork:{
+    // array of Jobs
+  },
   avatar: {},
   banner: {},
 });

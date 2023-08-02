@@ -14,11 +14,29 @@ router.get("/organizations/:id", async (req, res) => {
     }
 
     // console.log();
-    organization.getPublicProfile()
-    const toSend = await organization.getPublicProfile()
+    organization.getPublicProfile();
+    const toSend = await organization.getPublicProfile();
     res.send({ organization: toSend });
   } catch (e) {
     res.status(404).send();
+  }
+});
+
+//get a list of proposals
+router.get("/organizations/:id/proposals", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const organization = await Organization.findOne({ _id: id });
+
+    if (!organization) {
+      throw new Error();
+    }
+
+    await organization.populate("proposals");
+    res.send(organization.proposals);
+
+  } catch (e) {
+    res.status(500).send();
   }
 });
 
@@ -95,7 +113,9 @@ router.post("/organizations", async (req, res) => {
 
     await organization.save();
 
-    res.status(201).send({ organization, token });
+    const toSend = await organization.getPublicProfile();
+
+    res.status(201).send({ toSend, token });
   } catch (e) {
     res.status(400).send(e);
   }

@@ -4,43 +4,43 @@ const validator = require("validator");
 const tldrSchema = mongoose.Schema({
   teamAccount: {
     type: String,
-    require: true,
+    required: true,
     trim: true,
   },
   projectType: {
     type: String,
-    require: true,
+    required: true,
     trim: true,
   },
   contact: {
     type: String,
-    require: true,
+    required: true,
     trim: true,
   },
   startDate: {
     type: Date,
-    require: true,
+    required: true,
     trim: true,
   },
   fundingAmmount: {
     type: Number,
-    require: true,
+    required: true,
     trim: true,
   },
   deliveryDeadline: {
     type: Date,
-    require: true,
+    required: true,
     trim: true,
   },
   shortDescription: {
     type: String,
-    require: true,
+    required: true,
     trim: true,
   },
   // validate
   externalLinks: {
     type: [String],
-    require: true,
+    required: true,
     trim: true,
   },
 });
@@ -102,7 +102,7 @@ const proposalSchema = mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    require: true,
+    required: true,
   },
   tldr: {
     type: tldrSchema,
@@ -118,8 +118,16 @@ const proposalSchema = mongoose.Schema({
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    require: true,
-    ref: 'Organization'
+    required: true,
+    ref: "Organization",
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 

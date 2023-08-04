@@ -29,6 +29,7 @@ const Milestone = mongoose.model("Milestone", {
     type: Date,
     default: Date.now(),
   },
+  // Add a submited flag
   updatedAt: {
     type: Date,
     default: Date.now,

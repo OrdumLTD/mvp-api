@@ -70,7 +70,6 @@ const organizationSchema = mongoose.Schema({
     unique: true,
     trim: true,
   },
-  // Issued by a smart contract -> will be used with the specific wallet
   passkey: {
     type: String,
     trim: true,
@@ -85,34 +84,34 @@ const organizationSchema = mongoose.Schema({
       },
     },
   ],
-  about: {
-    type: String,
-    maxLength: 2000,
-    trim: true,
-  },
-  mission: {
-    type: String,
-    maxLength: 2000,
-    trim: true,
-  },
-  projectType: {
-    type: [PorjectTypeSchema],
-    default: {},
-  },
-  blockchain: {
-    type: [BlockchainSchema],
-    default: {},
-  },
-  links: {
-    type: LinksSchema,
-    default: {},
-  },
-  team: {
-    //
-    // { name: refToIndividual, teamRole: enum(SUDO, ADMIN, REGULAR) }
-    //
-    //Existing individual account + type of user - sudo, admin, regular
-  },
+  // about: {
+  //   type: String,
+  //   maxLength: 2000,
+  //   trim: true,
+  // },
+  // mission: {
+  //   type: String,
+  //   maxLength: 2000,
+  //   trim: true,
+  // },
+  // projectType: {
+  //   type: [PorjectTypeSchema],
+  //   default: {},
+  // },
+  // blockchain: {
+  //   type: [BlockchainSchema],
+  //   default: {},
+  // },
+  // links: {
+  //   type: LinksSchema,
+  //   default: {},
+  // },
+  // team: {
+  //   //
+  //   // { name: refToIndividual, teamRole: enum(SUDO, ADMIN, REGULAR) }
+  //   //
+  //   //Existing individual account + type of user - sudo, admin, regular
+  // },
   avatar: {},
   banner: {},
 });
@@ -141,7 +140,7 @@ organizationSchema.methods.getPublicProfile = async function () {
 
 organizationSchema.methods.generateAuthToken = async function () {
   const organization = this;
-  console.log(organization._id);
+
   const token = jwt.sign(
     { _id: organization._id.toString() },
     "this is a big secret"

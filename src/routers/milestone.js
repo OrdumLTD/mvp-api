@@ -21,7 +21,7 @@ router.get("/milestones", async (req, res) => {
 
 router.post("/milestones", async (req, res) => {
   const milestone = new Milestone(req.body);
-  console.log(milestone);
+  // console.log(milestone);
   try {
     await milestone.save()
     res.status(201).send(milestone);

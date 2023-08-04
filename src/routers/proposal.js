@@ -31,6 +31,8 @@ router.get("/proposals/:id", async (req, res) => {
   }
 });
 
+// get milestones from prop by id
+
 router.get("");
 
 //Submit proposal to DB
@@ -42,7 +44,6 @@ router.post("/proposals", auth, async (req, res) => {
   const addMilestones = async (milestones) => {
     const result = await milestones.map(async (item) => {
       const milestone = new Milestone(item);
-      console.log(milestone);
       await milestone.save();
       return milestone._id;
     });
@@ -56,7 +57,6 @@ router.post("/proposals", auth, async (req, res) => {
   if (milestones !== undefined) {
     milestoneIds = await addMilestones(milestones);
   }
-  console.log(milestoneIds);
 
   const proposal = new Proposal({
     ...req.body,
@@ -73,3 +73,4 @@ router.post("/proposals", auth, async (req, res) => {
 });
 
 module.exports = router;
+``

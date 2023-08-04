@@ -102,11 +102,11 @@ router.post("/organizations", async (req, res) => {
   try {
     const { email, name } = req.body;
 
-    let userWithSameEmail = await Organization.findOne({ email });
+    // let userWithSameEmail = await Organization.findOne({ email });
     let userWithSameName = await Organization.findOne({ name });
 
-    if (userWithSameEmail)
-      return res.status(400).send("Email is already registered.");
+    // if (userWithSameEmail)
+    //   return res.status(400).send("Email is already registered.");
     if (userWithSameName) return res.status(400).send("User name is taken.");
 
     const token = await organization.generateAuthToken();

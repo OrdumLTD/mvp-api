@@ -80,7 +80,7 @@ const contextSchema = mongoose.Schema({
   },
 });
 
-const teammebers = mongoose.Schema({
+const teammembers = mongoose.Schema({
   ordumID: {
     type: String,
   },
@@ -116,6 +116,7 @@ const proposalSchema = mongoose.Schema({
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
+    // TODo add reff to Individual
     ref: "Organization",
   },
   milestones: [{

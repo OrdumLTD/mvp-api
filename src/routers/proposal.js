@@ -25,6 +25,7 @@ router.get("/proposals/:id", async (req, res) => {
       res.status(404).send();
     }
     await proposal.populate("milestones");
+
     res.send(proposal);
   } catch (e) {
     res.status(500).send();
@@ -64,6 +65,8 @@ router.post("/proposals", auth, async (req, res) => {
     milestones: milestoneIds,
   });
 
+  await proposal.populate("milestones");
+
   try {
     await proposal.save();
     res.status(201).send(proposal);
@@ -73,4 +76,4 @@ router.post("/proposals", auth, async (req, res) => {
 });
 
 module.exports = router;
-``
+``;

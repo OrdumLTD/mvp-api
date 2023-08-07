@@ -9,7 +9,7 @@ const taskRouter = require("./routers/task")
 const milstoneRouter = require("./routers/milestone")
 
 const app = express();
-const port = process.env.PORT|| 8080;
+const port = process.env.PORT|| 4000;
 
 // Used for local testing
 app.use(

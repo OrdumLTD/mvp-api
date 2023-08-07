@@ -1,0 +1,152 @@
+# This is a document for REST Client - A testing tool for REST endpoitns
+# - Visual Studio Code extension
+
+GET http://localhost:4000/milestones/all
+
+###
+
+GET http://localhost:4000/milestones/test
+
+###
+POST http://localhost:4000/milestones/test
+Content-Type: application/json
+
+{
+    "name": "Test Milestone 1",
+    "hash": "radnom-hash-pretender"
+}
+
+###
+POST http://localhost:4000/milestones/create
+Content-Type: application/json
+
+{
+    "owner": {
+            "address": "Ordum",
+            "isTeam": true
+    },
+    "project": {
+            "name": "Grant Aggregator",
+            "id": "0000-0000-0001"
+    },
+    "milestones": [
+        {   
+            "id": "AA91-21F2-2234",
+            "name": "UI layout",
+            "hash": "2198m19pmh2p91hm",
+            "description": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam ",
+            "deadline": "25/10/2024",
+            "tasks": [
+                {
+                    "name": "Initial UI draft",
+                    "type": "Design",
+                    "description": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+                    "deadline": "21/07/2024",
+                    "deliverables": [
+                        {
+                            "name": "Initial layout Image",
+                            "link": "example.exmpl/djsajsdjsa"
+                        },
+                        {
+                            "name": "Color-schema",
+                            "link": "example.exmpl/21dd12d21"
+                        }
+                    ],
+                "teamMembers": [
+                    {
+                        "id": "9212-jdajs91-1212",
+                        "name": "Xylo Robot",
+                        "contact": "das1fc131212f21",
+                        "linkToPortfolio": "example.com",
+                        "role": "Designer",
+                        "bio": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+                        "costPerHour": "100",
+                        "hours": "150"
+                    }
+                ]
+                }
+            ]
+        },
+        {   
+            "id": "9128-2322-8821",
+            "name": "Blockchain integration",
+            "hash": "31231290as9c",
+            "description": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+            "deadline": "25/10/2024",
+            "tasks": [
+                {
+                    "name": "Finding the best tech stack",
+                    "type": "Development",
+                    "description": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+                    "deadline": "21/08/2024",
+                    "deliverables": [
+                        {
+                            "name": "Testing multiple chaings",
+                            "link": "example.exmpl/3323v2v"
+                        },
+                        {
+                            "name": "Color-schema",
+                            "link": "example.exmpl/4gdsadasdas"
+                        }
+                    ],
+                    "teamMembers": [
+                    {
+                        "id": "321312-321312-111",
+                        "name": "Prisho J",
+                        "contact": "323125412",
+                        "linkToPortfolio": "example12321.com",
+                        "role": "BC developer",
+                        "bio": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+                        "costPerHour": "100",
+                        "hours": "100"
+                    },
+                    {
+                        "id": "12312r21-3sdas21312-111",
+                        "name": "Evo N",
+                        "contact": "web2mail@mail.com",
+                        "linkToPortfolio": "312312emxample.com",
+                        "role": "Programer developer",
+                        "bio": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+                        "costPerHour": "80",
+                        "hours": "100"
+                    }
+                    ]
+                },
+                {
+                    "name": "Dev Ops and testing",
+                    "type": "DevOps",
+                    "description": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+                    "deadline": "10/09/2024",
+                    "deliverables": [
+                        {
+                            "name": "UML diagrams",
+                            "link": "example.exmpl/3123124"
+                        }
+                    ],
+                    "teamMembers": [
+                    {
+                        "id": "12312r21-3sdas21312-111",
+                        "name": "Evo N",
+                        "contact": "web2mail@mail.com",
+                        "linkToPortfolio": "312312emxample.com",
+                        "role": "Programer",
+                        "bio": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+                        "costPerHour": "80",
+                        "hours": "200"
+                    },
+                     {
+                        "id": "3123123-213124-41521",
+                        "name": "John Doe",
+                        "contact": "johndoe@mail.com",
+                        "linkToPortfolio": "jhndoe.com",
+                        "role": "CTO",
+                        "bio": "luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam",
+                        "costPerHour": "150",
+                        "hours": "200"
+                    }
+                    ]
+                }
+            ]
+        }        
+    ]
+}

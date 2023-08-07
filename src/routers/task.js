@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const Task = require("../models/task/task");
+const  { Task }  = require("../models/task/task");
 // const auth = require("../middleware/organizationAuth");
 
 router.get("/tasks", async (req, res) => {
@@ -12,6 +12,7 @@ router.get("/tasks", async (req, res) => {
 });
 
 router.post("/tasks", async (req, res) => {
+  // console.log(Task);
   const task = new Task(req.body);
   try {
     await task.save()

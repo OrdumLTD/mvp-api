@@ -57,7 +57,8 @@ const taskSchema = mongoose.Schema({
 
 const Task = mongoose.model("Task", taskSchema);
 
-exports.default = Task;
 
-module.exports = { taskSchema }
+// exports.default = Task;
+
+module.exports = { taskSchema, Task }
 

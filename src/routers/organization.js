@@ -1,6 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const Organization = require("../models/users/organization");
+const Milestone = require("../models/milestones/milestone")
 const auth = require("../middleware/organizationAuth");
 
 //get public profile

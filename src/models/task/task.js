@@ -4,7 +4,7 @@ const taskSchema = mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    required: true,
+    // required: true,
   },
   type: {
     type: String,
@@ -24,7 +24,7 @@ const taskSchema = mongoose.Schema({
         },
         name: {
           type: String,
-          required: true,
+          // required: true, 
         },
       },
     },
@@ -41,7 +41,7 @@ const taskSchema = mongoose.Schema({
   },
   deadline: {
     type: Date,
-    required: true
+    // required: true
   },
   deliverable: {
     type: {

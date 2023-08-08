@@ -38,9 +38,11 @@ router.get("");
 
 //Submit proposal to DB
 router.post("/proposals", auth, async (req, res) => {
+
+  console.log(req.body)
   // get a list of milesones
   const milestones = req.body.milestones;
-
+  try {
   // submitmilstoens to db and get IDs
   const addMilestones = async (milestones) => {
     const result = await milestones.map(async (item) => {
@@ -67,7 +69,7 @@ router.post("/proposals", auth, async (req, res) => {
 
   await proposal.populate("milestones");
 
-  try {
+  
     await proposal.save();
     res.status(201).send(proposal);
   } catch (e) {

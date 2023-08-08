@@ -8,7 +8,7 @@ const tldrSchema = mongoose.Schema({
     trim: true,
   },
   projectType: {
-    type: String,
+    type: [String],
     required: true,
     trim: true,
   },

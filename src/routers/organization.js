@@ -1,7 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const Organization = require("../models/users/organization");
-const Milestone = require("../models/milestones/milestone")
+const Milestone = require("../models/milestones/milestone");
 const auth = require("../middleware/organizationAuth");
 
 //get public profile
@@ -35,7 +35,6 @@ router.get("/organizations/:id/proposals", async (req, res) => {
 
     await organization.populate("proposals");
     res.send(organization.proposals);
-
   } catch (e) {
     res.status(500).send();
   }

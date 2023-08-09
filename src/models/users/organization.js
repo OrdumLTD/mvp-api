@@ -68,12 +68,13 @@ const organizationSchema = mongoose.Schema({
   name: {
     type: String,
     unique: true,
+    required: true,
     trim: true,
   },
   passkey: {
     type: String,
     trim: true,
-    require: true,
+    required: true,
     minlength: 8,
   },
   tokens: [

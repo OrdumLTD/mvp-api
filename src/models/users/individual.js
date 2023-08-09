@@ -5,10 +5,7 @@ const User = mongoose.model("Organization", {
   name: {
     type: String,
     trim: true,
-  },
-  id: {
-    //onchain ID for version
-    type: String,
+    required: true,
   },
   // email: {
   //   type: String,
@@ -23,29 +20,29 @@ const User = mongoose.model("Organization", {
   passkey: {
     type: String,
     trim: true,
-    require: true,
+    required: true,
     minlength: 8,
   },
-  bio: {
-    type: String,
-    trim: true,
-  },
-  mission: {
-    type: String,
-    trim: true,
-  },
-  proposals: {
-    // Ref to proposal
-  },
-  links: {
-    // Array of 6 liks
-  },
-  skills: {
-    // array of Skills
-  },
-  previousWork:{
-    // array of Jobs
-  },
+  // bio: {
+  //   type: String,
+  //   trim: true,
+  // },
+  // mission: {
+  //   type: String,
+  //   trim: true,
+  // },
+  // proposals: {
+  //   // Ref to proposal
+  // },
+  // links: {
+  //   // Array of 6 liks
+  // },
+  // skills: {
+  //   // array of Skills
+  // },
+  // previousWork:{
+  //   // array of Jobs
+  // },
   avatar: {},
   banner: {},
 });

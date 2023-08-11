@@ -49,7 +49,6 @@ const individualSchema = mongoose.Schema({
   banner: {},
 });
 
-
 individualSchema.methods.getPublicProfile = async function () {
   const individual = this;
   const individualObject = individual.toObject();
@@ -73,13 +72,13 @@ individualSchema.methods.generateAuthToken = async function () {
 
   individualSchema.statics.findByCredentials = async (name, passkey) => {
     const individual = await Individaul.findOne({ name });
-  
+
     if (!individual) {
       throw new Error("Unable to login");
     }
-  
+
     const isMatch = await bcrypt.compare(passkey, individual.passkey);
-  
+
     if (!isMatch) {
       throw new Error("Unable to login");
     }
@@ -89,6 +88,16 @@ individualSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-const Individaul = mongoose.model("Individual", individualSchema)
+individualSchema.pre("save", async function (next) {
+  const individual = this;
+
+  if (individual.isModified("passkey")) {
+    individual.passkey = await bcrypt.hash(individual.passkey, 10);
+  }
+
+  next();
+});
+
+const Individaul = mongoose.model("Individual", individualSchema);
 
 module.exports = Individaul;

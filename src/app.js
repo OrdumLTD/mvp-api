@@ -7,6 +7,7 @@ const organizationRouter = require("./routers/organization");
 const proposalRouter = require("./routers/proposal")
 const taskRouter = require("./routers/task")
 const milstoneRouter = require("./routers/milestone")
+const individualRouter = require("./routers/individual")
 
 const app = express();
 const port = process.env.PORT|| 4000;

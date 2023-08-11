@@ -94,7 +94,7 @@ router.post("/individuals/logoutAll", auth, async (req, res) => {
   }
 });
 
-// Creating an organizatin! Sign in!
+// Creating an individual! Sign in!
 router.post("/individuals", async (req, res) => {
   const individual = new individual(req.body);
 
@@ -106,7 +106,7 @@ router.post("/individuals", async (req, res) => {
 
     // if (userWithSameEmail)
     //   return res.status(400).send("Email is already registered.");
-    if (userWithSameName) return res.status(400).send("User name is taken.");
+    if (userWithSameName) return res.status(400).send("The name is taken.");
 
     const token = await individual.generateAuthToken();
 

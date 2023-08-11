@@ -3,6 +3,16 @@ const router = new express.Router();
 const Individual = require("../models/users/individual");
 const auth = require("../middleware/individualAuth");
 
+
+router.get("/individuals/test", async (req, res) => {
+  try {
+    res.send("ok")
+    
+  } catch (e) {
+    res.status(404).send();
+  }
+});
+
 //get public profile
 router.get("/individuals/:id", async (req, res) => {
   try {

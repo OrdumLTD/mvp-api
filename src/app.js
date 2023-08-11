@@ -26,6 +26,7 @@ app.use(milstoneRouter);
 app.use(organizationRouter);
 app.use(proposalRouter)
 app.use(taskRouter)
+app.use(individualRouter)
 
 
 

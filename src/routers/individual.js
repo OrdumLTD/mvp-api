@@ -106,13 +106,13 @@ router.post("/individuals/logoutAll", auth, async (req, res) => {
 
 // Creating an individual! Sign in!
 router.post("/individuals", async (req, res) => {
-  const individual = new individual(req.body);
+  const individual = new Individual(req.body);
 
   try {
     const { email, name } = req.body;
 
     // let userWithSameEmail = await individual.findOne({ email });
-    let userWithSameName = await individual.findOne({ name });
+    let userWithSameName = await Individual.findOne({ name });
 
     // if (userWithSameEmail)
     //   return res.status(400).send("Email is already registered.");

@@ -6,9 +6,24 @@ const jwt = require("jsonwebtoken");
 const individualSchema = mongoose.Schema({
   name: {
     type: String,
+    unique: true,
+    required: true,
+    trim: true,
+  },
+  passkey: {
+    type: String,
     trim: true,
     required: true,
+    minlength: 8,
   },
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
   // email: {
   //   type: String,
   //   trim: true,
@@ -19,12 +34,12 @@ const individualSchema = mongoose.Schema({
   //     }
   //   },
   // },
-  passkey: {
-    type: String,
-    trim: true,
-    required: true,
-    minlength: 8,
-  },
+  // passkey: {
+  //   type: String,
+  //   trim: true,
+  //   required: true,
+  //   minlength: 8,
+  // },
   // bio: {
   //   type: String,
   //   trim: true,

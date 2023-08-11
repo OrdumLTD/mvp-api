@@ -168,6 +168,22 @@ organizationSchema.statics.findByCredentials = async (name, passkey) => {
   return organization;
 };
 
+// 
+organizationSchema.statics.findByCredentialsNoError = async (name, passkey) => {
+  const organization = await Organization.findOne({ name });
+
+  if (!organization) {
+    return(false)
+  }
+
+  const isMatch = await bcrypt.compare(passkey, organization.passkey);
+
+  if (!isMatch) {
+    return(false)
+  }
+  return organization;
+};
+
 // Hashing Passkey
 organizationSchema.pre("save", async function (next) {
   const organization = this;

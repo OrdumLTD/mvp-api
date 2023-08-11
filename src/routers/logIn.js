@@ -40,7 +40,7 @@ router.post("/login", auth, async (req, res) => {
       await res.send({ individaul, token });
       return;
     }
-    res.status(400).send(e);
+    res.status(400``).send(e);
   } catch (e) {
     res.status(400).send(e);
   }

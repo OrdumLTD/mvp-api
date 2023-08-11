@@ -49,15 +49,6 @@ const individualSchema = mongoose.Schema({
   banner: {},
 });
 
-individualSchema.pre("save", async function (next) {
-  const individual = this;
-
-  if (individual.isModified("passkey")) {
-    individual.passkey = await bcrypt.hash(individual.passkey, 10);
-  }
-
-  next();
-});
 
 individualSchema.methods.getPublicProfile = async function () {
   const individual = this;

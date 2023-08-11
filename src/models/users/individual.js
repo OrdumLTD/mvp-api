@@ -88,15 +88,15 @@ individualSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-// individualSchema.pre("save", async function (next) {
-//   const individual = this;
+individualSchema.pre("save", async function (next) {
+  const individual = this;
 
-//   if (individual.isModified("passkey")) {
-//     individual.passkey = await bcrypt.hash(individual.passkey, 10);
-//   }
+  if (individual.isModified("passkey")) {
+    individual.passkey = await bcrypt.hash(individual.passkey, 10);
+  }
 
-//   next();
-// });
+  next();
+});
 
 const Individaul = mongoose.model("Individual", individualSchema);
 

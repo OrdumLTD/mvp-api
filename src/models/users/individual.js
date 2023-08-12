@@ -85,22 +85,40 @@ individualSchema.methods.generateAuthToken = async function () {
   individual.tokens = individual.tokens.concat({ token: token });
   await individual.save();
 
-  individualSchema.statics.findByCredentials = async (name, passkey) => {
-    const individual = await Individaul.findOne({ name });
 
-    if (!individual) {
-      throw new Error("Unable to login");
-    }
-
-    const isMatch = await bcrypt.compare(passkey, individual.passkey);
-
-    if (!isMatch) {
-      throw new Error("Unable to login");
-    }
-    return individual;
-  };
+  
 
   return token;
+};
+
+individualSchema.statics.findByCredentials = async (name, passkey) => {
+  const individual = await Individaul.findOne({ name });
+
+  if (!individual) {
+    throw new Error("Unable to login");
+  }
+
+  const isMatch = await bcrypt.compare(passkey, individual.passkey);
+
+  if (!isMatch) {
+    throw new Error("Unable to login");
+  }
+  return individual;
+};
+
+individualSchema.statics.findByCredentialsNoError = async (name, passkey) => {
+  const individaul = await Individaul.findOne({ name });
+
+  if (!individaul) {
+    return(false)
+  }
+
+  const isMatch = await bcrypt.compare(passkey, individaul.passkey);
+
+  if (!isMatch) {
+    return(false)
+  }
+  return individaul;
 };
 
 individualSchema.pre("save", async function (next) {

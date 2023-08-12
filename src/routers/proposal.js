@@ -39,7 +39,6 @@ router.get("");
 //Submit proposal to DB
 router.post("/proposals", auth, async (req, res) => {
 
-  console.log(req.body)
   // get a list of milesones
   const milestones = req.body.milestones;
   try {

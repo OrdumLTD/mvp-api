@@ -18,7 +18,7 @@ router.post("/login", async (req, res) => {
       // Hide Passkey and Tokens hashes
       delete organization._doc.passkey;
       delete organization._doc.tokens;
-      organization.type = "organization";
+      // organization.type = "organization";
 
       await res.send({ organization, token });
       return;
@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
       // Hide Passkey and Tokens hashes
       delete individaul._doc.passkey;
       delete individaul._doc.tokens;
-      individaul.type = "individaul";
+      // individaul.type = "individaul";
 
       await res.send({ individaul, token });
       return;

@@ -5,7 +5,7 @@ const Individaul = require("../models/users/individaul");
 const Milestone = require("../models/milestones/milestone");
 const auth = require("../middleware/organizationAuth");
 
-router.post("/login", auth, async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     let organization = await Organization.findByCredentialsNoError(
       req.body.name,

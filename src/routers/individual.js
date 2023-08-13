@@ -124,7 +124,7 @@ router.post("/individuals", async (req, res) => {
 
     const toSend = await individual.getPublicProfile();
 
-    res.status(201).send({ toSend, token });
+    res.status(201).send({ toSend, token, accountType: "individual" });
   } catch (e) {
     res.status(400).send(e);
   }

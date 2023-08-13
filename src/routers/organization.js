@@ -115,7 +115,7 @@ router.post("/organizations", async (req, res) => {
 
     const toSend = await organization.getPublicProfile();
 
-    res.status(201).send({ toSend, token });
+    res.status(201).send({ toSend, token, accountType: "organization" });
   } catch (e) {
     res.status(400).send(e);
   }

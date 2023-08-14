@@ -1,7 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const Organization = require("../models/users/organization");
-const Individaul = require("../models/users/individual");
+const Individual = require("../models/users/individual");
 
 router.post("/login", async (req, res) => {
  
@@ -24,20 +24,20 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    let individaul = await Individaul.findByCredentialsNoError(
+    let individual = await Individual.findByCredentialsNoError(
       req.body.name,
       req.body.passkey
     );
 
-    if (individaul) {
-      const token = await individaul.generateAuthToken();
+    if (individual) {
+      const token = await individual.generateAuthToken();
 
       // Hide Passkey and Tokens hashes
-      delete individaul._doc.passkey;
-      delete individaul._doc.tokens;
+      delete individual._doc.passkey;
+      delete individual._doc.tokens;
       // individaul.type = "individaul";
 
-      await res.send({ individaul, token, accountType: "individaul" });
+      await res.send({ individual, token, accountType: "individaul" });
       return;
     }
     res.status(400).send(e);
